@@ -104,7 +104,8 @@ client.on('interactionCreate', async (interaction) => {
         }
 
         if (commandName === 'regras') {
-            await interaction.reply({ content: 'Regras enviadas.', embeds: [{ title: '🎖️ DIRETRIZES', description: '1. Obedeca ordens.\n2. Proibido Griefing.\n3. Sem toxicidade.\n4. 5 Warns causam isolamento.', color: 0x2E4F23 }] });
+            await interaction.reply({ content: 'Regras enviadas.', ephemeral: true });
+            return channel.send({ embeds: [{ title: '🎖️ DIRETRIZES', description: '1. Obedeca ordens.\n2. Proibido Griefing.\n3. Sem toxicidade.\n4. 5 Warns causam isolamento.', color: 0x2E4F23 }] });
         }
 
         if (commandName === 'tickets') {
@@ -189,4 +190,3 @@ client.on('interactionCreate', async (interaction) => {
                 coll.stop();
                 if (i.customId === fioCerto) {
                     await i.update({ content: '🟢 BOMBA DESARMADA COM SUCESSO! Bom trabalho militar.', components: [] });
-                } else {
